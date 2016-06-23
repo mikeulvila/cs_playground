@@ -1,5 +1,24 @@
 var unsorted = [3,6,7,2,1,5,8,4];
 
+function merge (left, right) {
+  var results = [];
+  var leftIndex = 0;
+  var rightIndex = 0;
+
+  while(leftIndex < left.length && rightIndex < right.length) {
+    if (left[leftIndex] < right[rightIndex]) {
+      results.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      results.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }
+  return results.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+};
+
+
+//*************************************
 function swap (items, item1, item2) {
   var temp = items[item1];
   items[item1] = items[item2];
@@ -69,6 +88,7 @@ function map (array, cb) {
 console.log(map(unsorted, function(el) {
   return el * 2;
 }))
+
 
 
 
