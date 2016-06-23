@@ -17,6 +17,19 @@ function merge (left, right) {
   return results.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
 };
 
+function mergeSort(array) {
+  if (array.length < 2) {
+    return array;
+  }
+
+  var middle = Math.floor(array.length / 2);
+  var left = array.slice(0, middle);
+  var right = array.slice(middle);
+
+  return merge(mergeSort(left), mergeSort(right));
+};
+
+console.log("mergeSort: ", mergeSort(unsorted));
 
 //*************************************
 function swap (items, item1, item2) {
