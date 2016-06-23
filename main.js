@@ -5,7 +5,7 @@ function swap (items, item1, item2) {
   items[item1] = items[item2];
   items[item2] = temp;
 };
-
+//*************************************
 function selectionSort(array) {
   var length = array.length;
   var i, j, min;
@@ -23,7 +23,8 @@ function selectionSort(array) {
   }
   return array;
 };
-
+//console.log(selectionSort(unsorted));
+//**************************************
 function bubbleSort(array) {
   var length = array.length;
   var i, j;
@@ -37,7 +38,43 @@ function bubbleSort(array) {
   }
   return array;
 }
+//console.log(bubbleSort(unsorted));
+//**************************************
+// implement forEach function that takes a callback
+function forEach (array, cb) {
+  var length = array.length;
+  var i;
+
+  for (i = 0; i < length; i++) {
+    cb(array[i]);
+  }
+};
+
+forEach(unsorted, function (el) {
+   console.log(el);
+});
+//**************************************
+// implement map function
+function map (array, cb) {
+  var mappedArray = [];
+  var length = array.length;
+  var i;
+
+  for (i = 0; i < length; i++) {
+    mappedArray.push(cb(array[i]));
+  }
+  return mappedArray;
+};
+
+console.log(map(unsorted, function(el) {
+  return el * 2;
+}))
 
 
-console.log(selectionSort(unsorted));
-console.log(bubbleSort(unsorted));
+
+
+
+
+
+
+
